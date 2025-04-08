@@ -1,0 +1,26 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": ".open-next/worker.js",
+  "name": "t3-new-new",
+  "compatibility_date": "2024-12-30",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "t3-new-new",
+    },
+  ],
+  "r2_buckets": [
+    // Create a R2 binding with the binding name "NEXT_INC_CACHE_R2_BUCKET"
+    // {
+    //   "binding": "NEXT_INC_CACHE_R2_BUCKET",
+    //   "bucket_name": "<BUCKET_NAME>",
+    // },
+  ],
+}
