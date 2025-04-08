@@ -19,11 +19,12 @@ export const posts = createTable(
     title: d.varchar({ length: 256 }),
     content: d.text(),
     imageUrl: d.text(),
+    linkOut: d.text(),
     createdAt: d
       .timestamp({ withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
     updatedAt: d.timestamp({ withTimezone: true }).$onUpdate(() => new Date()),
   }),
-  (t) => [index("title_idx").on(t.title)]
+  (t) => [index("title_idx").on(t.title)],
 );
