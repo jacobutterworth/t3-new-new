@@ -10,27 +10,35 @@ export function PostList() {
   }
 
   return (
-    <div className="w-full max-w-xs">
-      {/* <h2 className="mb-4 text-xl font-bold">Recent Posts</h2> */}
-      <div className="space-y-2">
+    <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {latestPosts?.map(
           (post) =>
             post && (
-              <div key={post.id} className="rounded-lg bg-white/10 p-4">
-                <h3 className="font-semibold">{post.title}</h3>
-                <p className="mt-1 text-sm text-gray-600">{post.content}</p>
+              <div
+                key={post.id}
+                className="rounded-xl bg-white/10 p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/20 hover:shadow-lg"
+              >
+                <h3 className="text-lg font-semibold text-gray-700">
+                  {post.title}
+                </h3>
+                <p className="mt-2 line-clamp-3 text-sm text-gray-700">
+                  {post.content}
+                </p>
                 {post.imageUrl && (
                   <img
                     src={post.imageUrl}
                     alt={post.title ?? "Post content"}
-                    className="mt-2 h-32 w-full rounded object-cover"
+                    className="mt-4 h-48 w-full rounded-lg object-cover shadow-sm"
                   />
                 )}
               </div>
             ),
         )}
         {(!latestPosts || latestPosts.length === 0) && (
-          <p className="text-center text-gray-500">No posts yet.</p>
+          <p className="col-span-full text-center text-gray-500">
+            No posts yet.
+          </p>
         )}
       </div>
     </div>
