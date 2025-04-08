@@ -3,13 +3,17 @@
 import { api } from "~/trpc/react";
 
 export function PostList() {
-  const [latestPosts] = api.post.getLatestPosts.useSuspenseQuery();
+  const { data: latestPosts, isLoading } = api.post.getLatestPosts.useQuery();
+
+  if (isLoading) {
+    return <div className="text-center text-gray-500">Loading posts...</div>;
+  }
 
   return (
     <div className="w-full max-w-xs">
       {/* <h2 className="mb-4 text-xl font-bold">Recent Posts</h2> */}
       <div className="space-y-2">
-        {latestPosts.map(
+        {latestPosts?.map(
           (post) =>
             post && (
               <div key={post.id} className="rounded-lg bg-white/10 p-4">
@@ -25,7 +29,7 @@ export function PostList() {
               </div>
             ),
         )}
-        {latestPosts.length === 0 && (
+        {(!latestPosts || latestPosts.length === 0) && (
           <p className="text-center text-gray-500">No posts yet.</p>
         )}
       </div>
