@@ -21,6 +21,7 @@ export const postRouter = createTRPCRouter({
         content: z.string().min(1),
         imageUrl: z.string().min(1),
         password: z.string().min(1),
+        linkOut: z.string().min(1),
       }),
     )
     .mutation(async ({ ctx, input }) => {
@@ -35,6 +36,7 @@ export const postRouter = createTRPCRouter({
         title: input.title,
         content: input.content,
         imageUrl: input.imageUrl,
+        linkOut: input.linkOut,
       });
     }),
 

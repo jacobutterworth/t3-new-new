@@ -17,6 +17,7 @@ export function CreatePost() {
   const [imageUrl, setImageUrl] = useState("");
   const [password, setPassword] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [linkOut, setLinkOut] = useState("");
 
   const handleClose = useCallback(() => {
     setIsModalOpen(false);
@@ -30,6 +31,7 @@ export function CreatePost() {
       setContent("");
       setImageUrl("");
       setPassword("");
+      setLinkOut("");
       handleClose();
     },
   });
@@ -151,6 +153,7 @@ export function CreatePost() {
                         title: name,
                         content: content,
                         imageUrl: imageUrl,
+                        linkOut: linkOut,
                         password: password,
                       });
                     } catch (error) {
@@ -177,6 +180,13 @@ export function CreatePost() {
                     placeholder="Image URL"
                     value={imageUrl}
                     onChange={(e) => setImageUrl(e.target.value)}
+                    className="rounded-lg border border-gray-300 px-4 py-2 text-black focus:border-blue-500 focus:outline-none"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Link Out"
+                    value={linkOut}
+                    onChange={(e) => setLinkOut(e.target.value)}
                     className="rounded-lg border border-gray-300 px-4 py-2 text-black focus:border-blue-500 focus:outline-none"
                   />
                   <input
