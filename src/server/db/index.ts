@@ -12,4 +12,4 @@ import * as schema from "./schema";
  */
 
 const sql = neon(env.DATABASE_URL);
-export const db = drizzleNeonAdapter(sql);
+export const db = drizzleNeonAdapter(sql, { schema });
