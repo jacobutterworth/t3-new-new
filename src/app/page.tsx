@@ -1,14 +1,13 @@
-import Link from "next/link";
-
-import { LatestPost } from "~/app/_components/post";
-import { HydrateClient, api } from "~/trpc/server";
+import { CreatePost } from "~/app/_components/CreatePost";
+import { PostList } from "~/app/_components/post";
+import { HydrateClient } from "~/trpc/server";
 
 export default async function Home() {
   return (
     <HydrateClient>
       <main className="flex min-h-screen flex-col items-center justify-center text-black">
-        <h2>Latest posts: </h2>
-        <LatestPost />
+        <PostList />
+        <CreatePost />
       </main>
     </HydrateClient>
   );
