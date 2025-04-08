@@ -21,6 +21,7 @@
 		"cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
 	},
 	"dependencies": {
+		"@neondatabase/serverless": "^1.0.0",
 		"@opennextjs/cloudflare": "1.0.0-beta.1",
 		"@t3-oss/env-nextjs": "^0.12.0",
 		"@tanstack/react-query": "^5.69.0",
