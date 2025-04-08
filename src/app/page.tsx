@@ -6,7 +6,8 @@ import { HydrateClient, api } from "~/trpc/server";
 export default async function Home() {
   return (
     <HydrateClient>
-      <main className="flex min-h-screen flex-col items-center justify-center text-white">
+      <main className="flex min-h-screen flex-col items-center justify-center text-black">
+        <h2>Latest posts: </h2>
         <LatestPost />
       </main>
     </HydrateClient>
