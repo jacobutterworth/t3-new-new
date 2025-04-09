@@ -1,6 +1,6 @@
 import { unstable_noStore as noStore } from "next/cache";
 import { CreatePost } from "~/app/_components/CreatePost";
-import { PostList } from "~/app/_components/post";
+import { PostList } from "~/app/_components/PostList";
 import { HydrateClient } from "~/trpc/server";
 
 export default async function Home() {

@@ -16,7 +16,10 @@ export function PostList() {
         {latestPosts?.map(
           (post) =>
             post && (
-              <div className="relative transition-all duration-300 hover:-translate-y-1 hover:bg-white/20 hover:shadow-lg">
+              <div
+                className="relative transition-all duration-300 hover:-translate-y-1 hover:bg-white/20 hover:shadow-lg"
+                key={post.id}
+              >
                 <div className="relative rounded-xl bg-white/10 p-6">
                   <h3 className="text-lg font-semibold text-gray-700">
                     {post.title}
