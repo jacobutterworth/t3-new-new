@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { api } from "~/trpc/react";
 
 export function PostList() {
@@ -15,21 +16,28 @@ export function PostList() {
         {latestPosts?.map(
           (post) =>
             post && (
-              <div
-                key={post.id}
-                className="rounded-xl bg-white/10 p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/20 hover:shadow-lg"
-              >
-                <h3 className="text-lg font-semibold text-gray-700">
-                  {post.title}
-                </h3>
-                <p className="mt-2 line-clamp-3 text-sm text-gray-700">
-                  {post.content}
-                </p>
-                {post.imageUrl && (
-                  <img
-                    src={post.imageUrl}
-                    alt={post.title ?? "Post content"}
-                    className="mt-4 h-48 w-full rounded-lg object-cover shadow-sm"
+              <div className="relative transition-all duration-300 hover:-translate-y-1 hover:bg-white/20 hover:shadow-lg">
+                <div className="relative rounded-xl bg-white/10 p-6">
+                  <h3 className="text-lg font-semibold text-gray-700">
+                    {post.title}
+                  </h3>
+                  <p className="mt-2 line-clamp-3 text-sm text-gray-700">
+                    {post.content}
+                  </p>
+                  {post.imageUrl && (
+                    <img
+                      src={post.imageUrl}
+                      alt={post.title ?? "Post content"}
+                      className="mt-4 h-48 w-full rounded-lg object-cover shadow-sm"
+                    />
+                  )}
+                </div>
+                {post.linkOut && (
+                  <Link
+                    className="absolute inset-0"
+                    href={post.linkOut}
+                    target="_blank"
+                    key={post.id}
                   />
                 )}
               </div>
