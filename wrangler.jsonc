@@ -16,6 +16,11 @@
       "service": "t3-new-new",
     },
   ],
+  "observability": {
+    "logs": {
+      "enabled": true,
+    }
+  },
   "r2_buckets": [
     // Create a R2 binding with the binding name "NEXT_INC_CACHE_R2_BUCKET"
     // {
